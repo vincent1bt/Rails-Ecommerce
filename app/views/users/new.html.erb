@@ -1,2 +1,13 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Registrate</h2>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+  Nombre: <%= f.text_field :name %> <br>
+  Email: <%= f.email_field :email %> <br>
+  Password: <%= f.password_field :password %> <br>
+  Confirmacion de password: <%= f.password_field :password_confirmation %> <br>
+  <%= f.submit "Registrarse" %>
+<% end %>
