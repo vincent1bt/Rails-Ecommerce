@@ -1,0 +1,12 @@
+<h2>Create product</h2>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
+<%= form_for(@product) do |f| %>
+  title: <%= f.text_field :title %> <br>
+  Price: <%= f.text_field :price %> <br>
+  description: <%= f.text_area :description %> <br>
+  <%= f.submit "Create" %>
+<% end %>

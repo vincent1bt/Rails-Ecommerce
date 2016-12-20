@@ -1,0 +1,17 @@
+<section class="payments">
+  <h3 class="payments_title">
+    Pay with
+  </h3>
+  <div class="payments_container">
+    <div class="payments_container_method">
+      <%= button_to  "/pay", method: :post, class: "paypal-button" do %>
+        <%= image_tag "paypal.png", class: "paypal-logo" %>
+      <% end %>
+    </div>
+    <div class="payments_container_method">
+      <%= button_to  "/pay", method: :post, class: "paypal-button" do %>
+        <%= image_tag "paypal.png", class: "paypal-logo" %>
+      <% end %>
+    </div>
+  </div>
+</section>

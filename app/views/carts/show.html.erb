@@ -1,0 +1,23 @@
+<section class="cart">
+  <h3 class="cart_h3"> Cart </h3>
+
+  <% @shopping_cart.cart_item.each do |cart| %>
+    <div class="cart_item">
+      <p class="cart_item_title">
+        <%= cart.product.title %>
+      </p>
+      <p class="cart_item_price">
+        <%= cart.product.price %>$
+      </p>
+    </div>
+  <% end%>
+  <div class="cart_item">
+    <p class="cart_item_title">
+      Total
+    </p>
+    <p class="cart_item_price">
+      <%= @shopping_cart.total %>$
+    </p>
+  </div>
+  <%= render "payments/form" %>
+</section>

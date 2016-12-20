@@ -1,0 +1,67 @@
+// Place all the styles related to the carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart {
+  width: 70%;
+  margin: 0 auto;
+  //border: solid 1px;
+
+  &_h3 {
+    padding-left: 50px;
+    font-size: 2em;
+  }
+
+  &_item:last-child {
+    border-top: 1px solid black;
+  }
+
+  &_item:nth-child(2n) {
+    background: rgba(189, 195, 199,1.0);
+    color: white;
+  }
+
+  &_item {
+    display: flex;
+    p {
+      width: 50%;
+      padding-left: 20px;
+    }
+  }
+}
+
+.payments {
+  &_title {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  &_container {
+    display: flex;
+    text-align: center;
+
+    &_method {
+      width: 50%;
+    }
+  }
+}
+
+
+
+.paypal-logo {
+  max-width: 90px;
+  max-height: 120px;
+}
+
+.paypal-button {
+  border-radius: 5px;
+  border: solid 1px white;
+  margin: 0;
+  padding: 5px;
+  cursor: pointer;
+  background: white;
+
+  &:hover {
+    border: solid 1px rgba(41, 128, 185,1.0);
+  }
+}

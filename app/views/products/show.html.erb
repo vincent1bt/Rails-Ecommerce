@@ -1,2 +1,4 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<%= @product.title %> <br>
+<%= @product.user.email %>
+
+<%= render "cart_items/form", product: @product %>

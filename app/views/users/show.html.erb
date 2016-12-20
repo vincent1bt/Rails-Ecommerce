@@ -1,4 +1,10 @@
 <%= @user.name %>
 <%= @user.email %>
+<br>
+<% @user.my_payments.each do |payment| %>
+  <%= payment.status %>
+  <%= payment.cart.total %>
+<% end %>
 
+<br>
 <%= link_to "Cerrar sesion", logout_path, method: :delete %>

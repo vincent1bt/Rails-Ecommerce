@@ -41,7 +41,7 @@ module SessionsHelper
     if logged_in?
       return true
     else
-      redirect_to root_pat, status: :unauthorized
+      redirect_to root_path, status: :unauthorized
       flash[:alert] = "necesitas inciar sesion"
     end
   end

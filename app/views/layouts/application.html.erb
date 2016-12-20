@@ -9,14 +9,7 @@
   </head>
 
   <body>
-
-    <% if logged_in? %>
-      hola <%= @current_user.name %> <br>
-      <%= link_to "Perfil", current_user %>
-    <% else %>
-      <%= link_to "registrate", signup_path %> <br>
-      <%= link_to "Iniciar sesion", login_path %>
-    <% end %>
+    <%= render 'layouts/header' %>
 
     <% if flash[:alert] %>
       <%= flash[:alert] %>

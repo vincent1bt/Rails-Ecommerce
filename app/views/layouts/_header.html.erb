@@ -1,0 +1,32 @@
+<header class="header">
+  <div class="header_title">
+    <%= link_to root_path do %>
+      <h1 class="header_title_h1">
+        MyShopy
+      </h1>
+    <% end %>
+  </div>
+  <nav class="header_nav">
+    <ul class="header_nav_list">
+      <% if logged_in? %>
+        <li class="header_nav_list_item">
+          <%= link_to current_user, class: "header_nav_list_item_link" do %>
+            <%= image_tag "user.png", class: "header_nav_list_item_link_image" %>
+          <% end %>
+        </li>
+        <li class="header_nav_list_item">
+          <%= link_to cart_path, class: "header_nav_list_item_link" do %>
+            <%= image_tag "cart-f.png", class: "header_nav_list_item_link_image" %>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="header_nav_list_item">
+          <%= link_to "register", signup_path, class: "header_nav_list_item_link" %> <br>
+        </li>
+        <li class="header_nav_list_item">
+          <%= link_to "Log In", login_path, class: "header_nav_list_item_link" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
