@@ -1,24 +1,24 @@
-# README
+#Ecommerce app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on rails Ecommerce
 
-Things you may want to cover:
 
-* Ruby version
+###Payments
 
-* System dependencies
+- Stripe
+- Paypal
 
-* Configuration
+You need two env variables for stripe:
 
-* Database creation
+- ENV["STRIPE_PUBLIC"]
+- ENV["STRIPE_SECRET"]
 
-* Database initialization
+[SignUp in stripe](https://stripe.com/)
 
-* How to run the test suite
+And another two for paypal:
 
-* Services (job queues, cache servers, search engines, etc.)
+- ENV["PAYPAL_PUBLIC"]
+- ENV["PAYPAL_SECRET"]
 
-* Deployment instructions
 
-* ...
+[SignUp in paypal](https://developer.paypal.com/)

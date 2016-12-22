@@ -1,12 +1,29 @@
-<h2>Create product</h2>
+<section class="form_section">
+  <h2 class="form_section_title">
+    <%= title %>
+  </h2>
 
-<% if flash[:alert] %>
-  <%= flash[:alert] %>
-<% end %>
+  <%= form_for(@product, html: { multipart: true }) do |f| %>
+  <div class="form_section_input">
+    <%= f.label "Title", class: "form_section_input_label" %>
+    <%= f.text_field :title, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Price", class: "form_section_input_label" %>
+    <%= f.text_field :price, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Description", class: "form_section_input_label" %>
+    <%= f.text_area :description, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Image", class: "form_section_input_label" %>
+    <%= f.file_field :image, class: "form_section_input_action form_section_input_action_file" %>
+  </div>
+  <div class="form_section_input">
+      <%= f.submit "Create", class: "form_section_input_button" %>
+  </div>
+  <% end %>
 
-<%= form_for(@product) do |f| %>
-  title: <%= f.text_field :title %> <br>
-  Price: <%= f.text_field :price %> <br>
-  description: <%= f.text_area :description %> <br>
-  <%= f.submit "Create" %>
-<% end %>
+  <%= link_to "Back", products_path %>
+</section>

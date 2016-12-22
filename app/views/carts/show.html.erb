@@ -7,7 +7,10 @@
         <%= cart.product.title %>
       </p>
       <p class="cart_item_price">
-        <%= cart.product.price %>$
+        $<%= cart.product.price %>
+      </p>
+      <p class="cart_item_remove">
+        <%= link_to "Remove", remove_from_cart_path(product_id: cart.product.id), method: :delete %>
       </p>
     </div>
   <% end%>
@@ -16,8 +19,14 @@
       Total
     </p>
     <p class="cart_item_price">
-      <%= @shopping_cart.total %>$
+      $<%= @shopping_cart.total %>
     </p>
   </div>
-  <%= render "payments/form" %>
+  <% if full_cart? %>
+    <%= render "payments/form" %>
+  <% else %>
+    <p>
+      Add items to buy
+    </p>
+  <% end %>
 </section>

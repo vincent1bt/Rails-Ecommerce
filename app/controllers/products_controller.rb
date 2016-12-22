@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :destroy]
+  before_action :set_product, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -26,6 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to @product, notice: "Product updated"
+    else
+      render :new, alert: @product.errors
+    end
   end
 
   def destroy
@@ -36,7 +41,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :price, :description)
+    params.require(:product).permit(:title, :price, :description, :image)
   end
 
   def set_product

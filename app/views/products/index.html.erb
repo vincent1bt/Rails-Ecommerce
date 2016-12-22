@@ -6,12 +6,15 @@
   <section class="products_container">
     <% @products.each do |product| %>
     <div class="products_container_item">
-      <p>
-        <%= link_to product.title, product %>
-      </p>
-      <p>
-        <%= product.price %>
-      </p>
+      <%= link_to product, class: "products_container_item_link" do %>
+        <%= image_tag product.image.url, class: "products_container_item_link_image" %>
+        <p>
+          <%= product.title %>
+        </p>
+        <p>
+          $<%= product.price %>
+        </p>
+      <% end %>
     </div>
     <% end %>
   </section>

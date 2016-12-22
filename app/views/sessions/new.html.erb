@@ -1,14 +1,23 @@
-<h2>Login</h2>
+<section class="form_section">
+  <h2 class="form_section_title">
+    Login
+  </h2>
 
-<% if flash[:alert] %>
-  <%= flash[:alert] %>
-<% end %>
-
-
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.text_field :email %>
-  <%= f.password_field :password %>
-  <%= f.check_box :remember_me %>
-  <span>Recuerdame</span>
-  <%= f.submit "Iniciar sesion" %>
-<% end %>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div class="form_section_input">
+      <%= f.label "Email", class: "form_section_input_label" %>
+      <%= f.text_field :email, class: "form_section_input_action" %>
+    </div>
+    <div class="form_section_input">
+      <%= f.label "Password", class: "form_section_input_label" %>
+      <%= f.password_field :password, class: "form_section_input_action" %>
+    </div>
+    <div class="form_section_input">
+      <%= f.check_box :remember_me %>
+      <span>Remember me</span>
+    </div>
+    <div class="form_section_input">
+        <%= f.submit "Log In", class: "form_section_input_button" %>
+    </div>
+  <% end %>
+</section>

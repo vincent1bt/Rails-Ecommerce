@@ -11,8 +11,74 @@
     display: flex;
 
     &_item {
-      border: solid 1px;
+      text-align: center;
+      //border: solid 1px;
       width: 25%;
+      height: 220px;
+      position: relative;
+
+      &_link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: black;
+        text-decoration: none;
+
+        &_image {
+          margin-top: 20px;
+          max-width: 90%;
+          max-height: 100px;
+        }
+      }
     }
   }
+}
+
+
+.product {
+  display: flex;
+
+  div {
+    width: 50%;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  &_container {
+    &_image {
+      max-width: 90%;
+    }
+  }
+
+  &_description {
+    &_title {
+      font-size: 2em;
+      margin-top: 0;
+    }
+
+    &_delete {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      background: rgba(231, 76, 60,1.0);
+    }
+
+    &_edit {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      background: rgba(46, 204, 113,1.0);
+    }
+
+    &_add {
+      text-decoration: none;
+      color: white;
+      background: rgba(52, 152, 219,1.0);
+      margin-top: 10px;
+      padding: 10px 20px;
+    }
+  }
+
+
 }

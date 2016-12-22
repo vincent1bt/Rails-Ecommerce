@@ -1,10 +1,42 @@
-<%= @user.name %>
-<%= @user.email %>
-<br>
-<% @user.my_payments.each do |payment| %>
-  <%= payment.status %>
-  <%= payment.cart.total %>
-<% end %>
+<section class="user">
+  <div class="user_title">
+    <h3>
+      Hello <%= @user.name %>
+    </h3>
+  </div>
+  <h4>
+    Payments
+  </h4>
+  <div class="user_payments">
 
-<br>
-<%= link_to "Cerrar sesion", logout_path, method: :delete %>
+    <% @user.my_payments.each do |payment| %>
+      <div class="user_payments_payment">
+        <% if payment.paypal_id == "none"%>
+          <p>Paid with stripe</p>
+        <% else %>
+          <p>Paid with paypal</p>
+        <% end %>
+        <ul>
+          <% payment.cart.products.each do |product| %>
+            <li>
+              <%= product.title %>
+              $<%= product.price %>
+            </li>
+          <% end %>
+        </ul>
+        <p>
+          Total: $<%= payment.cart.total %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="user_buttons">
+    <div class="user_buttons_container">
+      <%= link_to "Create product", new_product_path, class: "user_buttons_container_create" %>
+    </div>
+    <div class="user_buttons_container">
+      <%= link_to "Log out", logout_path, method: :delete, class: "user_buttons_container_delete" %>
+    </div>
+  </div>
+</section>

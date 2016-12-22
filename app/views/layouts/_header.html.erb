@@ -10,7 +10,7 @@
     <ul class="header_nav_list">
       <% if logged_in? %>
         <li class="header_nav_list_item">
-          <%= link_to current_user, class: "header_nav_list_item_link" do %>
+          <%= link_to user_profile_path, class: "header_nav_list_item_link" do %>
             <%= image_tag "user.png", class: "header_nav_list_item_link_image" %>
           <% end %>
         </li>

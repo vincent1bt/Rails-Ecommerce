@@ -1,3 +1,46 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user {
+  width: 70%;
+  margin: 0 auto;
+
+  &_title {
+
+
+  }
+
+  &_payments {
+    display: flex;
+
+    &_payment {
+      width: 33%;
+    }
+
+  }
+
+  &_buttons {
+    display: flex;
+    margin-top: 25px;
+
+    &_container {
+      width: 50%;
+      text-align: center;
+
+      &_delete {
+        background: rgba(231, 76, 60,1.0);
+      }
+
+      &_create {
+        background: rgba(52, 152, 219,1.0);
+      }
+      a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<%= form_tag "/pay_card" do -%>
+ <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="Your payment description"
+    data-amount="<%= @shopping_cart.total * 100 %>">
+  </script>
+<% end %>

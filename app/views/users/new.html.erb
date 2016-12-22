@@ -1,13 +1,27 @@
-<h2>Registrate</h2>
+<section class="form_section">
+  <h2 class="form_section_title">
+    Register
+  </h2>
 
-<% if flash[:alert] %>
-  <%= flash[:alert] %>
-<% end %>
-
-<%= form_for(@user) do |f| %>
-  Nombre: <%= f.text_field :name %> <br>
-  Email: <%= f.email_field :email %> <br>
-  Password: <%= f.password_field :password %> <br>
-  Confirmacion de password: <%= f.password_field :password_confirmation %> <br>
-  <%= f.submit "Registrarse" %>
-<% end %>
+  <%= form_for(@user) do |f| %>
+  <div class="form_section_input">
+    <%= f.label "Name", class: "form_section_input_label" %>
+    <%= f.text_field :name, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Email", class: "form_section_input_label" %>
+    <%= f.text_field :email, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Password", class: "form_section_input_label" %>
+    <%= f.password_field :password, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+    <%= f.label "Password confirmation", class: "form_section_input_label" %>
+    <%= f.password_field :password_confirmation, class: "form_section_input_action" %>
+  </div>
+  <div class="form_section_input">
+      <%= f.submit "Register", class: "form_section_input_button" %>
+  </div>
+  <% end %>
+</section>

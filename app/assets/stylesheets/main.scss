@@ -65,3 +65,55 @@
   }
 
 }
+
+.flash {
+  border: solid 1px;
+  width: 55%;
+  margin: 10px auto;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.notice {
+  background: rgba(52, 152, 219,1.0);
+}
+.alert {
+  background: rgba(231, 76, 60,1.0);
+}
+
+
+
+
+
+.form_section {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+
+  &_input {
+    &_label {
+      display: block;
+      padding: 10px 0;
+    }
+
+    &_button {
+      border: 0;
+      background: rgba(52, 152, 219,1.0);
+      color: white;
+      margin-top: 20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    &_action {
+      width: 70%;
+
+      &_file {
+        border: 0;
+        background: white;
+      }
+    }
+
+  }
+}

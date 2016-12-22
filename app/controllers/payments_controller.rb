@@ -1,5 +1,33 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :create_card]
+  before_action :full_cart?, only: [:create, :create_card]
+
+  def create_card
+    amount = @shopping_cart.total.to_i * 100
+
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      card: params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount: amount,
+      description: "Shopping cart payment",
+      currency: 'usd'
+    )
+
+    my_payment = @current_user.my_payments.create!(paypal_id: "none", ip: request.remote_ip, cart: @shopping_cart)
+    my_payment.pay!
+    ##delete cart cookie to have a new cart
+    cookies.delete(:cart_id)
+    redirect_to cart_path, notice: "Se proceso el pago"
+
+  rescue Stripe::CardError => e
+    flash[:alert] = e.message
+    redirect_to cart_path
+    flash[:notice] = "Please try again"
+  end
 
   def create
     paypal_payment = PaymentMethods::Paypal.new(@shopping_cart.total,

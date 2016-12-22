@@ -1,4 +1,22 @@
-<%= @product.title %> <br>
-<%= @product.user.email %>
+<section class="product">
+  <div class="product_container">
+    <%= image_tag @product.image.url, class: "product_container_image" %>
+  </div>
+  <div class="product_description">
+    <h3 class="product_description_title">
+      <%= @product.title %> <br>
+    </h3>
+    <p class="product_description_text">
+      <%= @product.description %>
+    </p>
+    <p class="product_description_price">
+      $<%= @product.price %>
+    </p>
+    <% if logged_in? && @product.user == @current_user %>
+        <%= link_to "Delete", @product, method: :delete, class: "product_description_delete" %>
+        <%= link_to "Edit", edit_product_path(@product), class: "product_description_edit" %>
+    <% end %>
 
-<%= render "cart_items/form", product: @product %>
+    <%= render "cart_items/form", product: @product %>
+  </div>
+</section>
